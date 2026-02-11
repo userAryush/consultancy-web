@@ -1,0 +1,13 @@
+BACKEND/env/
+BACKEND/media/
+BACKEND/staticfiles/
+
+**/__pycache__/
+
+#frontend
+FRONTEND/node_modules/
+
+
+*.txt
+**/.env
+*.log
