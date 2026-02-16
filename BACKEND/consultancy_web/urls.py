@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('apis/consultancy/', include('consultancy_web.urls'))
+    path('apis/consultancy/', include('base_app.urls'))
 ]
 # serve media during development only
 if settings.DEBUG:

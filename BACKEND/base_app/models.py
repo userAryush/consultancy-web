@@ -2,13 +2,11 @@ from django.db import models
 from base.models import BaseModel
 from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.contrib.postgres.fields import JSONField
-
-
 
 class StudyDestination(BaseModel):
     name = models.CharField(max_length=255)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
+
     short_description = models.TextField()
     full_description = models.TextField()
     why_study = models.TextField()
@@ -119,7 +117,7 @@ class ConsultancyTeamMember(BaseModel):
     image = models.ImageField(blank=True, upload_to='team/images/')
     is_chairman = models.BooleanField(default=False)
     priority_order = models.IntegerField(default=0)
-    social_links = JSONField(blank=True, null=True)
+    social_links = models.JSONField(blank=True, null=True)
 
     def __str__(self):
         return self.name

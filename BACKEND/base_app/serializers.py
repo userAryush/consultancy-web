@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import *
 
 
-
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = University
@@ -78,3 +77,4 @@ class StudyDestinationSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudyDestination
         fields = "__all__"
+        
