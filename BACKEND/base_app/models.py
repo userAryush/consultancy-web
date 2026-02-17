@@ -135,17 +135,6 @@ class ConsultancyTeamMember(BaseModel):
         return f"{self.name} ({self.get_role_type_display()})"
 
 
-class ContentBlock(BaseModel):
-    section_identifier = models.SlugField(unique=True)
-    title = models.CharField(max_length=255)
-    subtitle = models.CharField(max_length=255, blank=True)
-    description = models.TextField()
-    background_image = models.ImageField(blank=True, upload_to='content_blocks/')
-
-    def __str__(self):
-        return self.title
-
-
 class FAQ(BaseModel):
     CATEGORY_CHOICES = [
         ('General', 'General'),

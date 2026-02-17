@@ -12,7 +12,6 @@ router.register("testimonials", TestimonialViewSet)
 router.register("team", ConsultancyTeamMemberViewSet)
 router.register("classes", LanguageClassViewSet)
 router.register("bookings", ConsultationBookingViewSet)
-router.register("content-blocks", ContentBlockViewSet)
 router.register("inquiries", ContactInquiryViewSet)
 router.register("gallery", GalleryImageViewSet)
 
