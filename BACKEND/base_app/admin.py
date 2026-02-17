@@ -34,7 +34,7 @@ class FAQAdmin(admin.ModelAdmin):
 
 @admin.register(ConsultancyTeamMember)
 class ConsultancyTeamMemberAdmin(admin.ModelAdmin):
-    list_display = ("name", "role", "priority_order")
+    list_display = ("name", "role_type", "designation")
     ordering = ("priority_order",)
 
 

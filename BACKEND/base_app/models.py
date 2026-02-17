@@ -111,16 +111,28 @@ class Testimonial(BaseModel):
 
 
 class ConsultancyTeamMember(BaseModel):
+    ROLE_TYPE_CHOICES = [
+        ('leader', 'Leadership'),
+        ('counsellor', 'Counsellor'),
+        ('staff', 'Staff'),
+    ]
+
     name = models.CharField(max_length=255)
-    role = models.CharField(max_length=100)
-    bio = models.TextField(blank=True)
+    designation = models.CharField(max_length=100)
+    role_type = models.CharField(max_length=20, choices=ROLE_TYPE_CHOICES, default='staff')
+    bio = models.TextField(blank=True)  # Full bio for leaders
+    short_bio = models.CharField(max_length=255, blank=True)  # One line intro
     image = models.ImageField(blank=True, upload_to='team/images/')
-    is_chairman = models.BooleanField(default=False)
+    
+    # Counsellor specific fields
+    whatsapp_number = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(blank=True)
+    
     priority_order = models.IntegerField(default=0)
-    social_links = models.JSONField(blank=True, null=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} ({self.get_role_type_display()})"
 
 
 class ContentBlock(BaseModel):

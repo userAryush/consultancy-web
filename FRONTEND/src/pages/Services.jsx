@@ -15,50 +15,90 @@ import Button from '../components/ui/Button';
 
 const services = [
     {
-        icon: Compass,
         title: "University Selection",
-        desc: "Finding the perfect match for your academic background, career goals, and budget from our pool of 500+ global partners."
+        desc: "Finding the perfect match for your academic background, career goals, and budget from our pool of 500+ global partners.",
+        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Partner Institutions", text: "Access to 500+ top-ranked global partner universities." },
+            { label: "Budget Planning", text: "Matched programs based on your financial considerations." },
+            { label: "Career Alignment", text: "Guidance on programs with high employability rates." }
+        ]
     },
     {
-        icon: Search,
         title: "Course Counseling",
-        desc: "Expert guidance on choosing the right program that aligns with future market trends and your personal interests."
+        desc: "Expert guidance on choosing the right program that aligns with future market trends and your personal interests.",
+        image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Aptitude Assessment", text: "Identify the best courses based on your skills and interests." },
+            { label: "Market Research", text: "Insights into global career trends and high-demand industries." },
+            { label: "Pathways Support", text: "Tailored advice on foundational and degree-level pathways." }
+        ]
     },
     {
-        icon: FileText,
         title: "Application Support",
-        desc: "End-to-end assistance with document preparation, Statement of Purpose (SOP) editing, and application submission."
+        desc: "Navigating the documentation process can be challenging. Our team provides expert assistance to ensure all your application materials are accurate and complete.",
+        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Document Verification", text: "Guidance on required documents and verification of educational credentials." },
+            { label: "Application Assistance", text: "Help with crafting personal statements and letters of recommendation." },
+            { label: "Checklist Provisioning", text: "Comprehensive checklists to ensure you have all necessary documents prepared." }
+        ]
     },
     {
-        icon: GraduationCap,
         title: "Scholarship Guidance",
-        desc: "Helping students identify and apply for merit-based and need-based scholarships to ease financial burdens."
+        desc: "Helping students identify and apply for merit-based and need-based scholarships to ease financial burdens.",
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Merit Scholarships", text: "Identify opportunities based on academic excellence." },
+            { label: "Need-Based Aid", text: "Support for students requiring financial assistance." },
+            { label: "Grant Writing", text: "Professional advice on writing strong scholarship applications." }
+        ]
     },
     {
-        icon: CreditCard,
         title: "Visa Assistance",
-        desc: "Comprehensive visa interview preparation and documentation review with our 98% success rate track record."
+        desc: "Navigating the visa application process can be daunting, but our visa assistance service is here to simplify it for you. We provide expert guidance at every step.",
+        image: "https://images.unsplash.com/photo-1544717297-fa95b3ee21f3?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Step-by-Step Guidance", text: "Detailed support in completing visa applications accurately." },
+            { label: "Documentation Support", text: "Assistance in securing necessary documentation from educational institutions." },
+            { label: "Pre-Arrival Preparation", text: "Information on what to expect upon arrival regarding visa regulations." }
+        ]
     },
     {
-        icon: Clock,
         title: "Pre-Departure Briefing",
-        desc: "Essential workshops on culture, lifestyle, and academic expectations in your new home country."
+        desc: "Essential workshops on culture, lifestyle, and academic expectations in your new home country.",
+        image: "https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Cultural Orientation", text: "Workshops on local customs, language, and cultural adjustments." },
+            { label: "Travel Planning", text: "Assistance with ticket booking and travel arrangements." },
+            { label: "Budget Briefing", text: "Guidance on managing living expenses and local banking." }
+        ]
     },
     {
-        icon: MapPin,
         title: "Post-Landing Support",
-        desc: "Assistance with accommodation, airport pickup, and local orientation to ensure a smooth transition."
+        desc: "Assistance with accommodation, airport pickup, and local orientation to ensure a smooth transition.",
+        image: "https://images.unsplash.com/photo-1517732359359-5117142435e9?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Airport Pickup", text: "Coordinated transportation from the airport to your accommodation." },
+            { label: "Housing Assistance", text: "Help in finding safe and affordable student housing options." },
+            { label: "Local Orientation", text: "Information on local transportation, banking, and essential services." }
+        ]
     },
     {
-        icon: PlaneTakeoff,
         title: "Travel & Forex",
-        desc: "Best-in-class travel insurance options and currency exchange services for a hassle-free journey."
+        desc: "Best-in-class travel insurance options and currency exchange services for a hassle-free journey.",
+        image: "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=800&auto=format&fit=crop&q=60",
+        features: [
+            { label: "Insurance Support", text: "Comprehensive travel and health insurance coverage." },
+            { label: "Forex Guidance", text: "Assistance with currency exchange and international money transfers." },
+            { label: "Communication Setup", text: "Support in obtaining local SIM cards and maintaining connectivity." }
+        ]
     }
 ];
 
 const Services = () => {
     return (
-        <div>
+        <div className="bg-[#FFFDF1]">
             {/* Header */}
             <div className="relative h-[45vh] min-h-[400px] flex items-center border-b border-gray-100 overflow-hidden">
                 {/* Background Image */}
@@ -90,40 +130,74 @@ const Services = () => {
                 </div>
             </div>
 
-            {/* Services Grid */}
-            <SectionWrapper>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Services List (Alternating Zig-Zag) */}
+            <SectionWrapper className="bg-transparent py-20 px-4">
+                <div className="max-w-7xl mx-auto space-y-32">
                     {services.map((service, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            className={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
                         >
-                            <Card className="p-8 h-full transition-all duration-500 border border-brand-primary/5 flex flex-col group">
-                                <div className="w-14 h-14 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-6 border border-brand-primary/5">
-                                    <service.icon className="w-7 h-7 text-brand-primary transition-colors" />
+                            {/* Image Section (30%) */}
+                            <div className="w-full md:w-[35%]">
+                                <div className="overflow-hidden rounded-3xl shadow-2xl aspect-[4/5] relative group">
+                                    <img
+                                        src={service.image}
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-brand-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
                                 </div>
-                                <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                                <p className="text-gray-600 leading-relaxed flex-grow">
+                            </div>
+
+                            {/* Text Section (70%) */}
+                            <div className="w-full md:w-[65%] text-left">
+                                <h2 className="text-2xl md:text-4xl font-black text-[#0B2D72] mb-8 leading-tight">
+                                    {service.title}
+                                </h2>
+
+                                <p className="text-black text-sm md:text-lg leading-relaxed mb-10 max-w-3xl">
                                     {service.desc}
                                 </p>
-                                <div className="mt-8 pt-6 border-t border-brand-primary/5">
-                                    <span className="text-sm font-bold uppercase tracking-widest text-brand-primary">Learn More</span>
+
+                                <div className="">
+                                    <h4 className="text-xl font-bold text-[#0B2D72] mb-6 flex items-center gap-3">
+
+                                        Key Features:
+                                    </h4>
+
+                                    <ul className="grid grid-cols-1 gap-6">
+                                        {service.features.map((feature, idx) => (
+                                            <li key={idx} className="flex items-start gap-4">
+                                                <div className="mt-2 min-w-[10px] h-[10px] rounded-full bg-[#0B2D72]"></div>
+                                                <div className="text-lg">
+                                                    <span className="font-bold text-black">{feature.label}:</span>
+                                                    <span className="text-gray-700 ml-1">{feature.text}</span>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                            </Card>
+
+                            </div>
                         </motion.div>
                     ))}
                 </div>
             </SectionWrapper>
 
             {/* CTA Section */}
-            <div className="bg-brand-primary py-16">
-                <div className="max-w-4xl mx-auto px-4 text-center text-white">
-                    <h2 className="text-3xl font-bold mb-6">Experience the GlobalStudy Difference</h2>
-                    <p className="text-brand-secondary/80 mb-10 text-lg">Our experts are ready to guide you through the complex process of studying abroad.</p>
-                    <Button size="lg" variant="primary" className="bg-brand-accent text-brand-primary hover:bg-white transition-colors border-none shadow-lg">
+            <div className="bg-[#0B2D72] py-24 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-[#B91C1C]"></div>
+                <div className="max-w-4xl mx-auto px-4 text-center text-white relative z-10">
+                    <h2 className="text-4xl font-extrabold mb-8">Ready to Start Your Journey?</h2>
+                    <p className="text-white/80 mb-12 text-xl max-w-2xl mx-auto leading-relaxed">
+                        Our experts are ready to guide you through the complex process of studying abroad with personalized support.
+                    </p>
+                    <Button size="lg" className="bg-[#E5C362] text-[#0B2D72] font-black uppercase tracking-widest px-12 py-6 rounded-none hover:bg-white transition-all transform hover:-translate-y-1 shadow-2xl">
                         Book a Free Consultation
                     </Button>
                 </div>

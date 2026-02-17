@@ -7,6 +7,7 @@ import StudyDestinations from './pages/StudyDestinations';
 import DestinationDetail from './pages/DestinationDetail';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import TeamPage from './pages/TeamPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="team" element={<TeamPage />} />
           <Route path="destinations" element={<StudyDestinations />} />
           <Route path="destinations/:slug" element={<DestinationDetail />} />
           <Route path="gallery" element={<Gallery />} />

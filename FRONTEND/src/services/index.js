@@ -15,6 +15,8 @@ export const testimonialService = {
 
 export const teamService = {
     getAll: () => apiClient.get('team/'),
+    getGrouped: () => apiClient.get('team/grouped/'),
+    sendEmail: (data) => apiClient.post('team/send_email/', data),
 };
 
 export const classService = {
